@@ -61,7 +61,7 @@ while True:
     try:
         balance = w3.eth.get_balance(w3.eth.default_account)
         timestamp = w3.eth.getBlock('latest').timestamp
-        deadline = timestamp + 60 * random.randint(90, 120)
+        deadline = timestamp + 60 * 30
         avax_amount = w3.toWei(random.uniform(0.2,0.4), 'ether')
         usdc_amount = w3.toWei(random.uniform(0.2,0.4), 'ether')
         if balance >= w3.toWei(2, 'ether'):
@@ -84,6 +84,6 @@ while True:
                 print("Tx: {}".format(tx.hex()))
                 print("Waiting for tx to be mined...")
                 print("==================================")
-        sleep(10)
+        sleep(random.randint(10, 15)) 
     except ValueError:
         pass
